@@ -9,23 +9,18 @@ part 'todo_state.dart';
 
 class TodoBloc extends Bloc<TodoEvent, TodoState> {
   List<TodoItem> todoItems = [];
-  TodoBloc() : super(const _Loaded([]));
-
-  @override
-  Stream<TodoState> mapEventToState(TodoEvent event) async* {
-    yield* event.map(
-      started: (val) async* {
-        yield _Loaded(todoItems);
-      },
-      addTodo: (event) async* {
-        yield const _Loading();
-        todoItems.add(event.title);
-        if (todoItems.length == 10) {
-          yield const _Error("there was a error");
-        } else {
-          yield _Loaded(todoItems);
-        }
-      },
-    );
+  TodoBloc() : super(const _Loaded([])) {
+    on<TodoEvent>((event, emit) {
+      event.map(
+        started: (val) {
+          emit(TodoState.loaded(todoItems));
+        },
+        addTodo: (val) {
+          emit(const TodoState.loading());
+          todoItems.add(val.title);
+          emit(TodoState.loaded(todoItems));
+        },
+      );
+    });
   }
 }

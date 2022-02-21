@@ -28,7 +28,7 @@ _$_CryptoModel _$$_CryptoModelFromJson(Map<String, dynamic> json) =>
       circulatingSupply: (json['circulatingSupply'] as num).toDouble(),
       totalSupply: (json['totalSupply'] as num).toDouble(),
       maxSupply: (json['maxSupply'] as num).toDouble(),
-      ath: (json['ath'] as num).toDouble(),
+      ath: (json['ath'] as num?)?.toDouble() ?? 42.0,
       athChangePercentage: (json['athChangePercentage'] as num).toDouble(),
       athDate: DateTime.parse(json['athDate'] as String),
       atl: (json['atl'] as num).toDouble(),

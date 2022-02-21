@@ -41,7 +41,7 @@ class _$CryptoModelTearOff {
       required double circulatingSupply,
       required double totalSupply,
       required double maxSupply,
-      required double ath,
+      double? ath = 42.0,
       required double athChangePercentage,
       required DateTime athDate,
       required double atl,
@@ -107,7 +107,7 @@ mixin _$CryptoModel {
   double get circulatingSupply => throw _privateConstructorUsedError;
   double get totalSupply => throw _privateConstructorUsedError;
   double get maxSupply => throw _privateConstructorUsedError;
-  double get ath => throw _privateConstructorUsedError;
+  double? get ath => throw _privateConstructorUsedError;
   double get athChangePercentage => throw _privateConstructorUsedError;
   DateTime get athDate => throw _privateConstructorUsedError;
   double get atl => throw _privateConstructorUsedError;
@@ -146,7 +146,7 @@ abstract class $CryptoModelCopyWith<$Res> {
       double circulatingSupply,
       double totalSupply,
       double maxSupply,
-      double ath,
+      double? ath,
       double athChangePercentage,
       DateTime athDate,
       double atl,
@@ -271,7 +271,7 @@ class _$CryptoModelCopyWithImpl<$Res> implements $CryptoModelCopyWith<$Res> {
       ath: ath == freezed
           ? _value.ath
           : ath // ignore: cast_nullable_to_non_nullable
-              as double,
+              as double?,
       athChangePercentage: athChangePercentage == freezed
           ? _value.athChangePercentage
           : athChangePercentage // ignore: cast_nullable_to_non_nullable
@@ -337,7 +337,7 @@ abstract class _$CryptoModelCopyWith<$Res>
       double circulatingSupply,
       double totalSupply,
       double maxSupply,
-      double ath,
+      double? ath,
       double athChangePercentage,
       DateTime athDate,
       double atl,
@@ -465,7 +465,7 @@ class __$CryptoModelCopyWithImpl<$Res> extends _$CryptoModelCopyWithImpl<$Res>
       ath: ath == freezed
           ? _value.ath
           : ath // ignore: cast_nullable_to_non_nullable
-              as double,
+              as double?,
       athChangePercentage: athChangePercentage == freezed
           ? _value.athChangePercentage
           : athChangePercentage // ignore: cast_nullable_to_non_nullable
@@ -520,7 +520,7 @@ class _$_CryptoModel implements _CryptoModel {
       required this.circulatingSupply,
       required this.totalSupply,
       required this.maxSupply,
-      required this.ath,
+      this.ath = 42.0,
       required this.athChangePercentage,
       required this.athDate,
       required this.atl,
@@ -568,8 +568,9 @@ class _$_CryptoModel implements _CryptoModel {
   final double totalSupply;
   @override
   final double maxSupply;
+  @JsonKey()
   @override
-  final double ath;
+  final double? ath;
   @override
   final double athChangePercentage;
   @override
@@ -699,7 +700,7 @@ abstract class _CryptoModel implements CryptoModel {
       required double circulatingSupply,
       required double totalSupply,
       required double maxSupply,
-      required double ath,
+      double? ath,
       required double athChangePercentage,
       required DateTime athDate,
       required double atl,
@@ -748,7 +749,7 @@ abstract class _CryptoModel implements CryptoModel {
   @override
   double get maxSupply;
   @override
-  double get ath;
+  double? get ath;
   @override
   double get athChangePercentage;
   @override

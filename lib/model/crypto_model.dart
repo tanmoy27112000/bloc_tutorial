@@ -35,7 +35,7 @@ abstract class CryptoModel with _$CryptoModel {
     required double circulatingSupply,
     required double totalSupply,
     required double maxSupply,
-    required double ath,
+    @Default(42.0) double? ath,
     required double athChangePercentage,
     required DateTime athDate,
     required double atl,
